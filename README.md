@@ -2,242 +2,112 @@
 
 ## Project Overview
 
-This project analyzes a Spotify dataset using PostgreSQL and SQL.
+This project analyzes Spotify track-level data using **PostgreSQL and SQL**. The analysis focuses on artists, albums, tracks, views, likes, comments, streams, and audio characteristics.
 
-The dataset contains information about tracks, artists, albums, audio characteristics, views, likes, comments, streams, and platform-related attributes.
-
-The main objective of this project is to explore the dataset and answer different analytical questions using SQL, starting from basic data exploration and progressing to aggregation, subqueries, CTEs, conditional logic, and window functions.
-
----
+The project is designed as a **Data Analyst portfolio project**, progressing from exploratory data analysis to more advanced SQL techniques.
 
 ## Dataset
 
-The dataset contains **24 columns** related to Spotify tracks, artists, albums, engagement metrics, audio characteristics, and platform information.
+- **20,592 records**
+- **24 columns**
+- Track-level Spotify data
+- Key fields include:
+  - `artist`
+  - `track`
+  - `album`
+  - `album_type`
+  - `views`
+  - `likes`
+  - `comments`
+  - `stream`
+  - `energy`
+  - `liveness`
+  - `licensed`
+  - `official_video`
+  - `most_played_on`
 
-### Dataset Columns
-
-| Column | Description |
-|---|---|
-| `artist` | Name of the artist |
-| `track` | Name of the track |
-| `album` | Album associated with the track |
-| `album_type` | Type of album |
-| `danceability` | Danceability score of the track |
-| `energy` | Energy score of the track |
-| `loudness` | Loudness of the track |
-| `speechiness` | Speechiness score of the track |
-| `acousticness` | Acousticness score of the track |
-| `instrumentalness` | Instrumentalness score of the track |
-| `liveness` | Liveness score of the track |
-| `valence` | Musical positiveness/valence score |
-| `tempo` | Tempo of the track |
-| `duration_min` | Track duration in minutes |
-| `title` | Title information |
-| `channel` | Channel associated with the track |
-| `views` | Number of views |
-| `likes` | Number of likes |
-| `comments` | Number of comments |
-| `licensed` | Whether the content is licensed |
-| `official_video` | Whether the track has an official video |
-| `stream` | Number of streams |
-| `energy_liveness` | Energy-to-liveness related metric |
-| `most_played_on` | Platform where the track is most played |
-
----
-
-## Tools & Technologies
-
-- PostgreSQL
-- SQL
-- pgAdmin 4
-- GitHub
-
----
-
-## Project Workflow
-
-The project was completed through the following stages:
-
-1. Data exploration
-2. Data cleaning
-3. Exploratory Data Analysis (EDA)
-4. Basic SQL analysis
-5. Aggregate analysis
-6. Conditional analysis
-7. Subqueries
-8. Common Table Expressions (CTEs)
-9. Window functions
-10. Analytical calculations
-
----
+The dataset was explored and cleaned before analysis.
 
 ## Exploratory Data Analysis
 
-The initial exploration was performed to understand the dataset and its characteristics.
+The initial analysis covered:
 
-The EDA includes:
-
-- Checking the complete dataset
-- Counting total records
-- Counting distinct artists
-- Counting distinct albums
-- Checking different album types
-- Checking licensed content
-- Checking official video values
-- Checking the platforms on which tracks are most played
-- Finding minimum and maximum track duration
-- Identifying records with zero track duration
-
----
+- Total number of records
+- Distinct artists and albums
+- Album types
+- Licensed vs. non-licensed tracks
+- Official video availability
+- Most-played platforms
+- Minimum and maximum track duration
+- Records with zero duration
 
 ## SQL Analysis
 
-The project contains **15 SQL questions** covering different levels of SQL analysis.
+The project contains **15 SQL questions**, progressing from basic analysis to advanced SQL.
 
-### Basic Analysis
+### Questions 1–5
 
-1. Retrieve tracks that have more than 1 billion streams.
+1. Retrieve tracks with more than 1 billion streams.
 2. List albums along with their respective artists.
-3. Get the total number of comments for licensed tracks.
-4. Find tracks that belong to the `single` album type.
+3. Find comments for licensed tracks.
+4. Find tracks belonging to the `single` album type.
 5. Count the total number of tracks by each artist.
 
-### Aggregation Analysis
+### Questions 6–10
 
-6. Calculate the average danceability of tracks in each album.
+6. Calculate average danceability by album.
 7. Find the top 5 tracks with the highest energy values.
-8. List tracks along with their views and likes where `official_video = TRUE`.
-9. Calculate the total views of tracks for each album.
-10. Compare Spotify and YouTube streams for tracks.
+8. List tracks with views and likes where `official_video = TRUE`.
+9. Calculate total views associated with each album.
+10. Compare Spotify and YouTube streams using conditional aggregation.
 
-### Advanced SQL Analysis
+### Questions 11–15
 
-11. Find the top 3 most-viewed tracks for each artist using window functions.
-12. Find tracks where the liveness score is above the average.
-13. Calculate the difference between the highest and lowest energy values for tracks in each album using a CTE.
+11. Find the top 3 most-viewed tracks for each artist using `DENSE_RANK()`.
+12. Find tracks where the liveness score is above the overall average.
+13. Calculate the difference between the highest and lowest energy values for each album using a CTE.
 14. Find tracks where the energy-to-liveness ratio is greater than 1.2.
-15. Calculate the cumulative sum of likes for tracks ordered by views using a window function.
-
----
+15. Calculate the cumulative sum of likes ordered by views using a window function.
 
 ## SQL Concepts Demonstrated
 
-### Data Exploration
-
-- `SELECT`
-- `COUNT()`
-- `DISTINCT`
-- `MIN()`
-- `MAX()`
-
-### Filtering
-
-- `WHERE`
-- Comparison operators
-- Boolean conditions
-
-### Aggregation
-
-- `COUNT()`
-- `SUM()`
-- `AVG()`
-- `MIN()`
-- `MAX()`
+- `SELECT`, `WHERE`, `DISTINCT`
+- `ORDER BY`, `LIMIT`
+- `COUNT()`, `SUM()`, `AVG()`, `MIN()`, `MAX()`
 - `GROUP BY`
-- `ORDER BY`
-- `LIMIT`
-
-### Conditional Logic
-
 - `CASE WHEN`
-
-### NULL Handling
-
+- Conditional aggregation
 - `COALESCE()`
 - `NULLIF()`
-
-### Subqueries
-
-Subqueries were used to compare individual track values against aggregate values such as the average liveness score.
-
-### Common Table Expressions
-
-- `WITH`
-- CTE-based calculations
-
-### Window Functions
-
+- Subqueries
+- Common Table Expressions (CTEs)
+- Window functions
 - `OVER()`
 - `PARTITION BY`
 - `DENSE_RANK()`
-- Cumulative `SUM()`
-
-### Analytical Calculations
-
-- Ratios
-- Differences between aggregate values
-- Ranking
 - Cumulative calculations
-- Platform comparison
+- Ratio calculations
 
----
+## Data Analyst Skills Practiced
 
-## Window Functions
+- Exploring and understanding structured datasets
+- Translating analytical questions into SQL
+- Filtering and aggregating data
+- Comparing business metrics
+- Handling NULL and zero values
+- Ranking records
+- Performing cumulative calculations
+- Extracting insights from query results
+- Documenting analytical work
 
-Two important window-function concepts were practiced in this project.
-
-### Ranking Tracks by Artist
-
-`DENSE_RANK()` was used with `PARTITION BY` to rank tracks based on their total views within each artist.
-
-### Cumulative Likes
-
-A windowed `SUM()` was used to calculate the cumulative number of likes while ordering tracks by views.
-
-These queries helped demonstrate how window functions can perform calculations across related rows without collapsing the result into a single row per group.
-
----
-
-## Project Screenshots
-
-### 1. Exploratory Data Analysis
-
-![EDA](screenshots/01-eda.png)
-
-### 2. Basic SQL Analysis
-
-![Basic SQL](screenshots/02-basic-sql.png)
-
-### 3. Aggregate Analysis
-
-![Aggregation](screenshots/03-aggregation.png)
-
-### 4. Advanced SQL Analysis
-
-![Advanced SQL](screenshots/04-advanced-sql.png)
-
-### 5. Window Functions
-
-![Window Functions](screenshots/05-window-functions.png)
-
----
-
-## Repository Structure
+## Project Files
 
 ```text
-spotify-sql-analysis/
+Spotify-SQL-Data-Analysis/
 │
 ├── README.md
-│
-├── sql/
-│   └── Spotify_Analysis.sql
-│
 ├── data/
 │   └── cleaned_dataset.csv
-│
-└── screenshots/
-    ├── 01-eda.png
-    ├── 02-basic-sql.png
-    ├── 03-aggregation.png
-    ├── 04-advanced-sql.png
-    └── 05-window-functions.png
+├── sql/
+│   └── Spotify_Analysis.sql
+└── Spotify_SQL_Data_Analysis.pdf
